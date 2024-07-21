@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cau6</title>
+</head>
+<body>
+    <h1>Tính Tổng Số Lẻ và Số Chẵn</h1>
+    <label for="a">Nhập số nguyên dương a:</label>
+    <input type="number" id="a" min="1">
+    <br>
+    <label for="b">Nhập số nguyên dương b:</label>
+    <input type="number" id="b" min="1">
+    <br>
+    <button onclick="calculate()">Tính</button>
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            const a = parseInt(document.getElementById('a').value);
+            const b = parseInt(document.getElementById('b').value);
+
+            if (isNaN(a) || isNaN(b) || a < 1 || b < 1 || a > b) {
+                document.getElementById('result').innerText = 'Vui lòng nhập hai số nguyên dương hợp lệ, với a <= b.';
+                return;
+            }
+
+            let sumOdd = 0;
+            let sumEven = 0;
+
+            for (let i = a + 1; i < b; i++) {
+                if (i % 2 === 0) {
+                    sumEven += i;
+                } else {
+                    sumOdd += i;
+                }
+            }
+
+            document.getElementById('result').innerText = `Tổng số lẻ là ${sumOdd} và Tổng số chẵn là ${sumEven}`;
+        }
+    </script>
+</body>
+</html>

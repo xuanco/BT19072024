@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cau2</title>
+</head>
+<body>
+    <h1>Đếm số từ và ký tự trong câu</h1>
+    <textarea id="vanBanNhap" rows="4" cols="50" placeholder="Nhập câu của bạn ở đây..."></textarea><br><br>
+    <button onclick="demTuVaKyTu()">Đếm</button>
+    <p id="ketQua"></p>
+
+    <script>
+        function demTuVaKyTu() {
+            // Lấy giá trị từ textarea
+            const vanBan = document.getElementById('vanBanNhap').value;
+
+            // Đếm số ký tự
+            let soKyTu = 0;
+            for (let i = 0; i < vanBan.length; i++) {
+                soKyTu++;
+            }
+
+            // Đếm số từ
+            let soTu = 0;
+            let trongTu = false;
+            for (let i = 0; i < vanBan.length; i++) {
+                if (vanBan[i] !== ' ' && vanBan[i] !== '\t' && vanBan[i] !== '\n') {
+                    if (!trongTu) {
+                        soTu++;
+                        trongTu = true;
+                    }
+                } else {
+                    trongTu = false;
+                }
+            }
+
+            // Hiển thị kết quả
+            document.getElementById('ketQua').innerText = `Số từ: ${soTu}, Số ký tự: ${soKyTu}`;
+        }
+    </script>
+</body>
+</html>

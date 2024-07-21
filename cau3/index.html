@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cau3</title>
+</head>
+<body>
+    <h1>In dãy Fibonacci</h1>
+    <label for="numberInput">Nhập số nguyên n:</label>
+    <input type="number" id="numberInput">
+    <button onclick="printFibonacci()">In dãy Fibonacci</button>
+    <p id="output"></p>
+
+    <script>
+        function printFibonacci() {
+            const n = parseInt(document.getElementById('numberInput').value);
+            if (isNaN(n) || n < 0) {
+                alert('Vui lòng nhập số nguyên dương.');
+                return;
+            }
+
+            const fibonacci = [];
+            let a = 0, b = 1;
+
+            // Tạo dãy Fibonacci
+            while (a <= n) {
+                fibonacci.push(a);
+                const next = a + b;
+                a = b;
+                b = next;
+            }
+
+            // Hiển thị kết quả
+            document.getElementById('output').innerText = fibonacci.join(' ');
+        }
+    </script>
+</body>
+</html>

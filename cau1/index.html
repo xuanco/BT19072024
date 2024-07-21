@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cau1</title>
+</head>
+<body>
+    <h1>Tìm 20 bội số của một số</h1>
+    <label for="numberInput">Nhập một số nguyên:</label>
+    <input type="number" id="numberInput">
+    <button onclick="findMultiples()">Tìm bội số</button>
+    <h2>Kết quả:</h2>
+    <ul id="resultList"></ul>
+
+    <script>
+        function findMultiples() {
+            // Lấy giá trị từ input
+            const number = parseInt(document.getElementById('numberInput').value);
+
+            // Kiểm tra nếu giá trị nhập vào không hợp lệ
+            if (isNaN(number)) {
+                alert("Vui lòng nhập một số nguyên hợp lệ.");
+                return;
+            }
+
+            // Lấy phần tử danh sách để hiển thị kết quả
+            const resultList = document.getElementById('resultList');
+            resultList.innerHTML = ''; // Xóa kết quả cũ
+
+            // Tìm 20 bội số và thêm vào danh sách kết quả
+            for (let i = 1; i <= 20; i++) {
+                const listItem = document.createElement('li');
+                listItem.textContent = number * i;
+                resultList.appendChild(listItem);
+            }
+        }
+    </script>
+</body>
+</html>
